@@ -13,10 +13,10 @@ cd /usr/share/nginx/html
 
 echo "removing unwanted files"
 
-rm -rf *
+rm -rf * &>> /tmp/frontend.log
 
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>> /tmp/frontend.log
 mv frontend-main/static/* .
 mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
 
-systemctl restart nginx
+systemctl restart nginx &>> /tmp/frontend.log
