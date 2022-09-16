@@ -6,7 +6,7 @@ echo "downloading Nginx web content"
 systemctl enable nginx
 systemctl start nginx
 
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>> /tmp/frontend.log
 
 
 cd /usr/share/nginx/html

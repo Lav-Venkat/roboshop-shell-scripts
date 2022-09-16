@@ -9,3 +9,5 @@ Only output 1> STDOUT
 Only Error 2> STDERR
 
 STDOUT&STDERR (&>) - 2&>1 
+
+&>/dev/null - It will nullify the output
