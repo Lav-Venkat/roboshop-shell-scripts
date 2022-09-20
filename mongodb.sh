@@ -17,6 +17,6 @@ sudo curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/
 sudo cd /tmp
 sudo unzip mongodb.zip
 sudo cd mongodb-main
-mongod<catalogue.js
-mongod<users.js
+sudo mongod<catalogue.js
+sudo mongod<users.js
 echo "Status $?"
