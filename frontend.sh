@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 LOG_FILE=/tmp/frontend.log
 echo "Installing Nginx"
-yum install nginx -y
+yum install nginx -y &>> $LOG_FILE
 
 echo "downloading Nginx web content"
 systemctl enable nginx &>> $LOG_FILE
