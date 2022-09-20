@@ -1,5 +1,11 @@
 echo "******Catalogue module set up*******"
 
+ID=$(id -u)
+if [ $ID -ne 0 ]; then
+  echo "You should run this script as a root user"
+fi
+
+
 set -x
 LOG_FILE=/tmp/Catalogue.`date +%Y%m%d`.log
 
@@ -9,10 +15,22 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 yum install nodejs -y &>> $LOG_FILE
 
 echo "******* Set up the catalogue application **********"
-useradd roboshop
+
+id roboshop &>> $LOG_FILE
+if [ $? -ne 0 ]; then
+  echo "Add Roboshop application user"
+  useradd roboshop
+  if [ $? -eq 0 ]; then
+    echo "Status - Success"
+  else
+    echo "Status - Failure"
+    exit 1
+  fi
+fi
 
 echo "***** Download the catalogue application code*****"
 cd /home/roboshop
+rm -rf catalogue*
 
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>> $LOG_FILE
 cd /home/roboshop
