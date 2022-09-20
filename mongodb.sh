@@ -21,6 +21,6 @@ cd mongodb-main
 
 
 echo "load catalogue service schema"
-mongod<catalogue.js
-mongod<users.js
+mongo<catalogue.js
+mongo<users.js
 echo "Status $?"
