@@ -6,15 +6,13 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/robos
 echo "Status $?"
 yum install -y mongodb-org &>> /tmp/mongoDB.log
 echo "Status $?"
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf # Need to verify if the script doesn't work
 systemctl enable mongod
 systemctl start mongod
 echo "Status $?"
-sed -e -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf # Need to verify if the script doesn't work
 
-systemctl restart mongod &>> /tmp/mongoDB.log
-echo "Status $?"
-
-echo"Downlooad mongodb schema"
+echo"Download mongodb schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 echo "Extract schema"
 cd /tmp
