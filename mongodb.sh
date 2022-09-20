@@ -7,7 +7,7 @@ echo "Status $?"
 yum install -y mongodb-org &>> /tmp/mongoDB.log
 echo "Status $?"
 
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf # Need to verify if the script doesn't work
+sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf # Need to verify if the script doesn't work
 systemctl enable mongod
 systemctl restart mongod
 echo "Status $?"
