@@ -7,9 +7,9 @@ echo "Status $?"
 yum install -y mongodb-org &>> /tmp/mongoDB.log
 echo "Status $?"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf # Need to verify if the script doesn't work
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf # Need to verify if the script doesn't work
 systemctl enable mongod
-systemctl start mongod
+systemctl restart mongod
 echo "Status $?"
 
 echo"Download mongodb schema"
@@ -18,7 +18,9 @@ echo "Extract schema"
 cd /tmp
 unzip mongodb.zip
 cd mongodb-main
-echo "catalogue service schema"
+
+
+echo "load catalogue service schema"
 mongod<catalogue.js
 mongod<users.js
 echo "Status $?"
