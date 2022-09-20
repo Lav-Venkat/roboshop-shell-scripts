@@ -17,7 +17,7 @@ echo"*****Download mongodb schema*****"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 echo "*****Extract schema*****"
 cd /tmp
-unzip mongodb.zip
+unzip -o mongodb.zip
 cd mongodb-main
 StatusCheck $?
 
