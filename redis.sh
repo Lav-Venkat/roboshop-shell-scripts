@@ -6,7 +6,7 @@ set -x
 
 echo -e "\e[33mInstall Redis on CentOS-8\e[0m"
 
-echo -e "\e[36mDownload redis package\e0m"
+echo -e "\e[36mDownload redis package\e[0m"
 
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> $LOG_FILE
 StatusCheck $?
